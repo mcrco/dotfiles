@@ -1,0 +1,25 @@
+#!/bin/bash
+
+solution() {
+	year=$1
+	contest=$2
+	levelversion=$3
+	problem=$4
+	/usr/bin/firefox "https://artofproblemsolving.com/wiki/index.php/${year}_${contest^^}_${levelversion^^}_Problems/Problem_${problem}"
+}
+
+answer() {
+	year=$1
+	contest=$2
+	levelversion=$3
+	problem=$4
+	url="https://artofproblemsolving.com/wiki/index.php/${year}_${contest^^}_${levelversion^^}_Answer_Key"
+	curl -s $url > /tmp/aops
+	linenumber=$((398+$problem))
+	line=$(sed -n ${linenumber}p /tmp/aops)
+#	echo $line
+	echo $line | sed 's/^.*<li>//g' | sed 's/<li>//g' | sed 's/<\/li>//g'
+}
+
+"$@"
+

@@ -1,0 +1,10 @@
+[Unit]
+Description=set monitor orientation on boot
+After=optimus-manager.service
+Type=simple
+
+[Service]
+ExecStart=/home/mod3sty/.screenlayout/dual\ monitor.sh
+
+[Install]
+WantedBy=multi-user.target
