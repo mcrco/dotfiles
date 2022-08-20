@@ -1,0 +1,35 @@
+[Desktop Action Remove]
+Exec=/usr/lib/appimagelauncher/remove "/home/mod3sty/Applications/cadmus_b528b4f1a7c010f8a6edb81a51a7e64c.AppImage"
+Icon=AppImageLauncher
+Name[en_US]=Remove AppImage from system
+Name=Remove AppImage from system
+
+[Desktop Entry]
+Actions=Remove;
+Categories=Utility;
+Comment[en_US]=
+Comment=
+Exec=/home/mod3sty/Applications/cadmus_b528b4f1a7c010f8a6edb81a51a7e64c.AppImage
+GenericName[en_US]=
+GenericName=
+Icon=appimagekit_8dba2106cf47f57106d186f947f6cb73_cadmus
+MimeType=
+Name[en_US]=cadmus (.glibc2.3.4)
+Name=cadmus (.glibc2.3.4)
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+TryExec=/home/mod3sty/Applications/cadmus_b528b4f1a7c010f8a6edb81a51a7e64c.AppImage
+Type=Application
+Version=1.0
+X-AppImage-Identifier=8dba2106cf47f57106d186f947f6cb73
+X-AppImage-Old-Icon=cadmus
+X-AppImage-Old-Name=cadmus
+X-AppImage-Version=.glibc2.3.4
+X-AppImageLauncher-Version=2.2.0 (git commit 0f91801), built on 2020-09-29 22:53:07 UTC
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

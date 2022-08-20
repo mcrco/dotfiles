@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=/home/mod3sty/Scripts/dualmonitor.sh
+Icon=dialog-scripts
+Name=dualmonitor.sh
+Path=
+Type=Application
+X-KDE-AutostartScript=true
