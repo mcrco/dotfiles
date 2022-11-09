@@ -1,7 +1,10 @@
 #!/bin/bash
 
 # Set monitors using xrandr
-$HOME/.screenlayout/setMonitors.sh
+$HOME/.screenlayout/dualmonitor.sh
+
+# OpenRGB
+openrgb -p off
 
 # Restart hotkeys server
 pgrep -x sxhkd > /dev/null || sxhkd &
@@ -14,12 +17,12 @@ wmname LG3D
 
 # Restart programs as necessary
 pkill latte-dock
+latte-dock
 pkill plasmashell
 kstart5 plasmashell &
 $HOME/.config/polybar/launch.sh &
-$HOME/Scripts/latte-dock.sh
 
-# blue light
+blue light
 if [ "$(pgrep redshift)" == "" ]
 then
 	$HOME/Scripts/toggle-bluelight.sh
@@ -30,14 +33,11 @@ pgrep bspswallow || bspswallow &
 
 # Aesthetic stuff
 bspc config border_width         0
-bspc config border_radius 		 10
 bspc config focused_border_color \#FFFFFF
 bspc config split_ratio          0.5
 bspc config window_gap           20
 
 # Workspaces
-
-
 # For second monitor (if connected)
 if [ $(xrandr | grep -c ' connected') -gt 1 ]
 then
@@ -56,6 +56,3 @@ fi
 bspc rule -a Pavucontrol state=floating rectangle=1000x500+800+52
 bspc rule -a obs state=floating
 bspc rule -a Zathura state=tiled
-#bspc rule -a latte-dock state=floating
-#bspc rule -a lattedock state=floating
-#bsp-layout set tall -- --master-size 0.5
