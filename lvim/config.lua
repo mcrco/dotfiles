@@ -3,7 +3,10 @@ lvim.log.level = "warn"
 lvim.format_on_save = {
     pattern = "*.java", "*.lua", "*.python", "*.js"
 }
+
 lvim.colorscheme = "tokyonight"
+vim.opt.termguicolors = true
+vim.g.material_terminal_italics = 1
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 lvim.transparent_window = true
@@ -50,23 +53,22 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.plugins = {
     {"zhou-michael/cpp-javadoc"},
     {"lervag/vimtex"},
+    {'kaicataldo/material.vim'},
+    {'shaunsingh/nord.nvim'},
+    {'tanvirtin/monokai.nvim'},
+    {'sirver/ultisnips'},
 }
 
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- vim.api.nvim_create_autocmd("BufEnter", {
---   pattern = { "*.json", "*.jsonc" },
---   -- enable wrap mode for json files only
---   command = "setlocal wrap",
--- })
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "zsh",
---   callback = function()
---     -- let treesitter use bash highlight for zsh files as well
---     require("nvim-treesitter.highlight").attach(0, "bash")
---   end,
--- })
---
+-- I love Michael Zhou
+require('cpp-javadoc').setup()
 
--- latex note taking
+-- Latex Notes
+vim.g.tex_flavor = 'latex'
 vim.g.vimtex_view_method = 'zathura'
-vim.g.vimtex_compile_method = 'latexrun'
+vim.g.vimtex_quick_fix_mode = 0
+vim.opt.conceallevel = 1
+vim.g.tex_conceal = 'abdmg'
+
+vim.g.UltiSnipsExpandTrigger = '<tab>'
+vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
+vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
