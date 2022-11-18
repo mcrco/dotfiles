@@ -1,12 +1,11 @@
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = {
-    pattern = "*.java", "*.lua", "*.python", "*.js"
+  pattern = "*.java", "*.lua", "*.python", "*.js"
 }
 
 lvim.colorscheme = "tokyonight"
 vim.opt.termguicolors = true
-vim.g.material_terminal_italics = 1
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 lvim.transparent_window = true
@@ -14,6 +13,7 @@ vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -31,18 +31,18 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
-    "bash",
-    "c",
-    "javascript",
-    "json",
-    "lua",
-    "python",
-    "typescript",
-    "tsx",
-    "css",
-    "rust",
-    "java",
-    "yaml",
+  "bash",
+  "c",
+  "javascript",
+  "json",
+  "lua",
+  "python",
+  "typescript",
+  "tsx",
+  "css",
+  "rust",
+  "java",
+  "yaml",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -51,12 +51,12 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- Additional Plugins
 lvim.plugins = {
-    {"zhou-michael/cpp-javadoc"},
-    {"lervag/vimtex"},
-    {'kaicataldo/material.vim'},
-    {'shaunsingh/nord.nvim'},
-    {'tanvirtin/monokai.nvim'},
-    {'sirver/ultisnips'},
+  { "zhou-michael/cpp-javadoc" },
+  { "lervag/vimtex" },
+  { 'kaicataldo/material.vim' },
+  { 'shaunsingh/nord.nvim' },
+  { 'tanvirtin/monokai.nvim' },
+  { 'sirver/ultisnips' },
 }
 
 -- I love Michael Zhou
@@ -68,7 +68,19 @@ vim.g.vimtex_view_method = 'zathura'
 vim.g.vimtex_quick_fix_mode = 0
 vim.opt.conceallevel = 1
 vim.g.tex_conceal = 'abdmg'
+vim.g.UltiSnipsSnippetDirectories = {"$HOME/.config/lvim/ultisnips"}
+vim.g.UltiSnipsExpandTrigger = '<cr>'
 
-vim.g.UltiSnipsExpandTrigger = '<tab>'
+
+-- vim.g.ulti_expand_or_jump_res = 0
+-- function ExpandSnippetOrCarriageReturn()
+--     local snippet = 'UltiSnips#ExpandSnippetOrJump()'
+--     if vim.gulti_expand_or_jump_res > 0 then
+--         return snippet
+--     else
+--         return '\<CR>'
+--     end
+-- inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+
 vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
 vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
