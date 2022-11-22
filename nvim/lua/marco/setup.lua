@@ -16,7 +16,7 @@ local packer_bootstrap = ensure_packer()
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
+    autocmd BufWritePost setup.lua source <afile> | PackerSync
   augroup end
 ]])
 
@@ -39,8 +39,9 @@ local plugin_list = {
     "windwp/nvim-autopairs",
 
     -- LSP
-    "williamboman/nvim-lsp-installer",
     "neovim/nvim-lspconfig",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
 
     -- Autocomplete
     "hrsh7th/nvim-cmp",
@@ -52,16 +53,21 @@ local plugin_list = {
     "SirVer/ultisnips",
     "quangnguyen30192/cmp-nvim-ultisnips",
 
-    -- File explorer
-    "nvcm-tree/nvim-tree.lua",
+    -- Latex
+    "lervag/vimtex",
 
-    -- Fancy stuff
+    -- File explorer
+    "nvim-tree/nvim-tree.lua",
+
+    -- Aesthetics
     "folke/tokyonight.nvim", -- colorscheme
     "nvim-lualine/lualine.nvim",
     "xiyaowong/nvim-transparent", -- transparency
     "lewis6991/gitsigns.nvim", -- git changes on signcolumn
     "kyazdani42/nvim-web-devicons", -- icons
 }
+
+
 
 -- Install plugins with Packer
 return packer.startup(function (use)

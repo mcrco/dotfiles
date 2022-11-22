@@ -1,8 +1,6 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap
--- use jk to exit insert mode
-keymap.set("i", "jk", "<ESC>")
 
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")
@@ -21,8 +19,10 @@ keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
--- plugins keymaps
+-- reload config
+keymap.set("n", "<leader>r", ":source $MYVIMRC<CR>") --  go to previous tab
 
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+
 
