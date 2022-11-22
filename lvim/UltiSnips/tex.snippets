@@ -1,3 +1,11 @@
+# snippet today "Date"
+# `date +%F`
+# endsnippet
+
+# snippet hi "Hi"
+# please work for the love of god
+# endsnippet
+
 global !p
 def math():
 	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
@@ -17,6 +25,8 @@ snippet template "Basic template" b
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[dutch]{babel}
 \usepackage{amsmath, amssymb}
 
 
@@ -449,10 +459,6 @@ snippet dint "integral" wA
 \int_{${1:-\infty}}^{${2:\infty}} ${3:${VISUAL}} $0
 endsnippet
 
-snippet varint "integral" wA
-\int_{${1:-\infty}}^{${2:\infty}} ${3:${VISUAL}} \, d$3
-endsnippet
-
 priority 200
 context "math()"
 snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int)' "ln" rwA
@@ -644,3 +650,6 @@ snippet DD "D" iA
 endsnippet
 
 # vim:ft=snippets
+
+
+

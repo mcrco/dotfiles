@@ -18,6 +18,8 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.iskeyword:append("-")
 
+-- highlight cursor line
+opt.cursorline = true
 
 -- appearance
 opt.termguicolors = true
@@ -28,5 +30,3 @@ opt.backspace = "indent,eol,start"
 
 -- clipboard
 opt.clipboard:append("unnamedplus")
-
-
