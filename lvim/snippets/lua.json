@@ -1,0 +1,12 @@
+{
+  "reqcheck": {
+    "prefix": "reqcheck",
+    "description": "Sanity check for plugins",
+    "body": [
+      "local $1_setup, $1 = pcall(require, \"$1\")",
+      "if not $1_setup then",
+      "\treturn",
+      "end"
+    ]
+  }
+}
