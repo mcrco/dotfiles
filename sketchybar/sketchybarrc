@@ -91,7 +91,7 @@ sketchybar --add item clock right                        \
                                                          \
            --add item battery right                      \
            --set battery script="$PLUGIN_DIR/battery.sh" \
-                         update_freq=120                  \
+                         update_freq=60                  \
            --subscribe battery system_woke
 
 ##### Finalizing Setup #####
