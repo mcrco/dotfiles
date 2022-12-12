@@ -17,7 +17,7 @@ vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-vim.opt.mouse = '';
+-- vim.opt.mouse = '';
 
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
