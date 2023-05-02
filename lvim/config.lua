@@ -2,7 +2,7 @@
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.format_on_save = {
-  pattern = "*.java", "*.lua", "*.python", "*.js", "*.snippets"
+  pattern = "*.java", "*.lua", "*.python", "*.js", "*.snippets", "*.jsx"
 }
 
 -- theme
