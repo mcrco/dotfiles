@@ -1,3 +1,4 @@
+local icons = require "icons"
 -- lvim stuff
 lvim.log.level = "warn"
 -- lvim.format_on_save = true
@@ -7,7 +8,7 @@ lvim.format_on_save.enabled = true
 -- }
 
 -- theme
-require("tokyonight-theme")
+-- require("tokyonight-theme")
 -- lvim.colorscheme = "tokyonight"
 lvim.transparent_window = true
 vim.opt.termguicolors = true
@@ -55,7 +56,6 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
-
 -- Additional Plugins
 lvim.plugins = {
     { 'catppuccin/nvim' },
@@ -77,13 +77,6 @@ lvim.plugins = {
 -- I love Michael Zhou
 require('cpp-javadoc').setup()
 
--- Convert Gilles Castel's and my snippets from ultisnips to luasnip
--- require("snippet-converter")
--- require("luasnip.loaders.from_vscode").lazy_load({ paths = { "$HOME/.config/lvim/snippets" } })
--- lvim.builtin.luasnip.sources.friendly_snippets = false
-lvim.builtin.luasnip.active = false
--- lvim.builtin.cmp.active = false
-
 -- Vimtex for note-taking
 vim.g.tex_flavor = 'latex'
 vim.g.vimtex_compiler_latexmk = {
@@ -91,8 +84,9 @@ vim.g.vimtex_compiler_latexmk = {
 }
 vim.g.vimtex_view_method = 'zathura'
 vim.g.vimtex_quick_fix_mode = 0
-vim.opt.conceallevel = 1
+-- vim.opt.conceallevel = 1
 vim.g.tex_conceal = 'abdmg'
 
--- Set up nvim-cmp with ultisinps
-require("nvim-cmp")
+
+-- nvim-cmp settings
+require('tex-ultisnips-cmp')
