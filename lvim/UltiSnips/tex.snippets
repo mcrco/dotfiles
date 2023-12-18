@@ -50,21 +50,23 @@ snippet pset "Problem set template" b
 \documentclass[answers]{exam}
 \makeindex
 
-\usepackage{amsmath, amsfonts, amssymb, amstext, amscd, amsthm, makeidx, graphicx, hyperref, url}
+\usepackage{amsmath, amsfonts, amssymb, amstext, amscd, amsthm, makeidx, graphicx, hyperref, url, enumerate}
 \newtheorem{theorem}{Theorem}
 \allowdisplaybreaks
 
 \begin{document}
 
 \begin{center}
-\textsc{\Large $1} \\
-\textsc{Marco Yang}
-\textsc{2237027}
+{\Large $1} \\\\
+\medskip
+Marco Yang \\\\
+\medskip
+2237027
 \bigskip
 \end{center}
 
 \begin{questions}
-$2
+	\question $2
 \end{questions}
 
 \end{document}
@@ -149,6 +151,22 @@ snippet ali "Align" bA
 \begin{align*}
 	${1:${VISUAL}}
 .\end{align*}
+endsnippet
+
+snippet cchem "Chem Formula" iA
+\ce{$1}$0
+endsnippet
+
+snippet caqu "aqueous subscript for chemical" iA
+_{(aq)}
+endsnippet
+
+snippet csol "solid subscript for chemical" iA
+_{(s)}
+endsnippet
+
+snippet cliq "liquid subscript for chemical" iA
+_{(l)}
 endsnippet
 
 snippet parts "Parts" bA
@@ -248,7 +266,19 @@ snippet floor "floor" iA
 endsnippet
 
 snippet pmat "pmat" iA
-\begin{pmatrix} $1 \end{pmatrix} $0
+\begin{pmatrix} 
+	$1 
+\end{pmatrix} $0
+endsnippet
+
+snippet <CR> "new line" iA
+\\
+$0
+endsnippet
+
+context "math()"
+snippet fj "matrix continue" iA
+ & 
 endsnippet
 
 snippet bmat "bmat" iA
@@ -293,6 +323,7 @@ snippet conj "conjugate" iA
 \overline{$1}$0
 endsnippet
 
+context "math()"
 snippet sum "sum" wA
 \sum_{$1}^{$2}$3
 endsnippet
@@ -301,7 +332,8 @@ snippet taylor "taylor" w
 \sum_{${1:k}=${2:0}}^{${3:\infty}} ${4:c_$1} (x-a)^$1 $0
 endsnippet
 
-snippet lim "limit" w
+context "math()"
+snippet lim "limit" wA
 \lim_{${1:n} \to ${2:\infty}} 
 endsnippet
 
@@ -317,9 +349,13 @@ snippet part "d/dx" w
 \frac{\partial ${1:V}}{\partial ${2:x}} $0
 endsnippet
 
+snippet ddx "dx" iA
+\, dx $0
+endsnippet
+
 context "math()"
 snippet sq "\sqrt{}" iA
-\sqrt{${1:${VISUAL}}} $0
+\sqrt{${1:${VISUAL}}}$0
 endsnippet
 
 context "math()"
@@ -339,15 +375,46 @@ endsnippet
 
 context "math()"
 snippet rd "to the ... power" iA
-^{($1)}$0
+^{$1}$0
 endsnippet
 
+context "math()"
 snippet _ "subscript" iA
 _{$1}$0
 endsnippet
 
+context "math()"
+snippet argmax "argmax" iA
+\underset{$1}{\text{argmax }} $0
+endsnippet
+
+context "math()"
+snippet argmin "argmin" iA
+\underset{$1}{\text{argmin }} $0
+endsnippet
+
 snippet ooo "\infty" iA
 \infty
+endsnippet
+
+context "math()"
+snippet equiv "\equiv" iA
+\equiv
+endsnippet
+
+context "math()"
+snippet not "\not" iA
+\not
+endsnippet
+
+context "math()"
+snippet !|| "\nmid" iA
+\nmid
+endsnippet
+
+context "math()"
+snippet mod "\mod" iA
+\mod $1 $0
 endsnippet
 
 snippet rij "mrij" i
@@ -455,7 +522,7 @@ endsnippet
 
 context "math()"
 snippet xx "cross" iA
-\times 
+\times
 endsnippet
 
 priority 100
@@ -474,10 +541,16 @@ snippet '(?<!\\)(sin|cos|arccot|cot|csc|ln|log|exp|star|perp)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
+priority 100
+context "math()"
+snippet iint "double integral" wA
+\iint_{$1} ${2:${VISUAL}} \, d$3 $0
+endsnippet
+
 priority 300
 context "math()"
 snippet dint "integral" wA
-\int_{${1:-\infty}}^{${2:\infty}} ${3:${VISUAL}} $0
+\int_{${1:-\infty}}^{${2:\infty}} ${3:${VISUAL}} \, d${4:${VISUAL}}$0
 endsnippet
 
 priority 200
@@ -556,18 +629,6 @@ snippet inn "in " iA
 \in 
 endsnippet
 
-snippet NN "n" iA
-\N
-endsnippet
-
-snippet Nn "cap" iA
-\cap 
-endsnippet
-
-snippet UU "cup" iA
-\cup 
-endsnippet
-
 snippet uuu "bigcup" iA
 \bigcup_{${1:i \in ${2: I}}} $0
 endsnippet
@@ -576,21 +637,29 @@ snippet nnn "bigcap" iA
 \bigcap_{${1:i \in ${2: I}}} $0
 endsnippet
 
-snippet OO "emptyset" iA
-\O
-endsnippet
+# snippet OO "emptyset" iA
+# \O
+# endsnippet
 
 snippet RR "real" iA
-\R
+\mathbb{R}
 endsnippet
 
-snippet QQ "Q" iA
-\Q
+snippet QQ "rational" iA
+\mathbb{Q}
 endsnippet
 
-snippet ZZ "Z" iA
-\Z
+snippet ZZ "integer" iA
+\mathbb{Z}
 endsnippet
+
+snippet NN "natural" iA
+\mathbb{N}
+endsnippet
+
+# snippet NN "natural" iA
+# \mathbb{Z}
+# endsnippet
 
 snippet <! "normal" iA
 \triangleleft 
@@ -607,8 +676,18 @@ _\text{$1} $0
 endsnippet
 
 context "math()"
-snippet tt "text" iA
+snippet te "text" iA
 \text{$1}$0
+endsnippet
+
+context "math()"
+snippet bf "\textbf" iA
+\textbf{$1}$2
+endsnippet
+
+context "math()"
+snippet max "max function" iA
+\text{max}
 endsnippet
 
 context "math()"
@@ -665,14 +744,6 @@ snippet mbb "mathbb" iA
 \mathbb{$1}$2
 endsnippet
 
-snippet te "text" i
-\text{$1}$2
-endsnippet
-
-snippet bf "\textbf" iA
-\textbf{$1}$2
-endsnippet
-
 context "math()"
 snippet vec "vector" iA
 \vec{$1}$2
@@ -687,41 +758,80 @@ snippet DD "D" iA
 \mathbb{D}
 endsnippet
 
+context "math()"
+snippet cap "intersection" iA
+\cap
+endsnippet
+
+context "math()"
+snippet cup "union" iA
+\cup
+endsnippet
+
+context "math()"
+snippet orr "or" iA
+\lor
+endsnippet
+
+context "math()"
+snippet and "and" A
+\land
+endsnippet
+
+context "math()"
 snippet @a "alpha" iA
 \alpha
 endsnippet
 
+context "math()"
 snippet @b "beta" iA
 \beta
 endsnippet
 
+context "math()"
 snippet @c "gamma" iA
 \gamma
 endsnippet
 
+context "math()"
 snippet @d "delta" iA
 \delta
 endsnippet
 
+context "math()"
+snippet @D "Delta" iA
+\Delta
+endsnippet
+
+context "math()"
 snippet @e "epsilon" iA
 \epsilon
 endsnippet
 
-snippet @f "omega" iA
+context "math()"
+snippet @o "omega" iA
 \omega
 endsnippet
 
-snippet @g "rho" iA
+context "math()"
+snippet @r "rho" iA
 \rho
 endsnippet
 
+context "math()"
 snippet @t "theta" iA
 \theta
 endsnippet
 
-# snippet @a "alpha" iA
-# \alpha
-# endsnippet
+context "math()"
+snippet phi "phi" iA
+\phi
+endsnippet
+
+context "math()"
+snippet @l "lambda" iA
+\lambda
+endsnippet
 
 # snippet @a "alpha" iA
 # \alpha

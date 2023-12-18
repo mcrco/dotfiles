@@ -63,6 +63,7 @@ lvim.plugins = {
     { 'zhou-michael/cpp-javadoc' },
     { 'folke/tokyonight.nvim' },
     { 'lervag/vimtex' },
+    { 'hrsh7th/cmp-omni'},
     { 'KeitaNakamura/tex-conceal.vim' },
     { 'kaicataldo/material.vim' },
     { 'shaunsingh/nord.nvim' },
@@ -72,6 +73,23 @@ lvim.plugins = {
     { 'sirver/ultisnips' },
     { 'quangnguyen30192/cmp-nvim-ultisnips' },
     { 'onsails/lspkind.nvim' },
+    {
+        "kawre/leetcode.nvim",
+        build = ":TSUpdate html",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-telescope/telescope.nvim",
+            "nvim-lua/plenary.nvim", -- required by telescope
+            "MunifTanjim/nui.nvim",
+
+            -- optional
+            "rcarriga/nvim-notify",
+            "nvim-tree/nvim-web-devicons",
+        },
+        opts = {
+            -- configuration goes here
+        },
+    }
 }
 
 -- I love Michael Zhou
@@ -80,13 +98,18 @@ require('cpp-javadoc').setup()
 -- Vimtex for note-taking
 vim.g.tex_flavor = 'latex'
 vim.g.vimtex_compiler_latexmk = {
-    build_dir = 'build',
+    out_dir = 'build',
 }
 vim.g.vimtex_view_method = 'zathura'
-vim.g.vimtex_quick_fix_mode = 0
+vim.g.vimtex_quick_fix_enabled = 0
+vim.g.vimtex_quickfix_open_on_warning = 0
 -- vim.opt.conceallevel = 1
 vim.g.tex_conceal = 'abdmg'
 
 
 -- nvim-cmp settings
 require('tex-ultisnips-cmp')
+
+require("notify").setup({
+  background_colour = "#000000",
+})

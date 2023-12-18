@@ -10,8 +10,8 @@ yabai -m signal --add event=window_destroyed action="sketchybar --trigger window
 
 $HOME/.config/yabai/create_spaces.sh
 
-brew services start skhd
-brew services restart skhd
+skhd --stop-service
+skhd --start-service
 brew services start sketchybar
 brew services restart sketchybar
 
