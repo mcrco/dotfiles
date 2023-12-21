@@ -1,15 +1,8 @@
-local icons = require "icons"
+-- local icons = require "icons"
 -- lvim stuff
 lvim.log.level = "warn"
--- lvim.format_on_save = true
 lvim.format_on_save.enabled = true
--- lvim.format_on_save = {
---   pattern = "*.java", "*.lua", "*.python", "*.js", "*.snippets", "*.jsx", "*.tsx"
--- }
 
--- theme
--- require("tokyonight-theme")
--- lvim.colorscheme = "tokyonight"
 lvim.transparent_window = true
 vim.opt.termguicolors = true
 lvim.transparent_window = true
@@ -19,19 +12,12 @@ vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
--- vim.opt.mouse = '';
-
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
--- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
--- TODO: User Config for predefined plugins
--- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
---lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
@@ -52,26 +38,22 @@ lvim.builtin.treesitter.ensure_installed = {
     "yaml",
 }
 
-
-lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
 -- Additional Plugins
 lvim.plugins = {
     { 'catppuccin/nvim' },
     { 'Mofiqul/dracula.nvim' },
-    { 'zhou-michael/cpp-javadoc' },
     { 'folke/tokyonight.nvim' },
     { 'lervag/vimtex' },
-    { 'hrsh7th/cmp-omni'},
+    -- { 'hrsh7th/cmp-omni' },
     { 'KeitaNakamura/tex-conceal.vim' },
     { 'kaicataldo/material.vim' },
     { 'shaunsingh/nord.nvim' },
     { 'tanvirtin/monokai.nvim' },
-    { 'smjonas/snippet-converter.nvim' },
     { 'navarasu/onedark.nvim' },
     { 'sirver/ultisnips' },
-    { 'quangnguyen30192/cmp-nvim-ultisnips' },
+    -- { 'quangnguyen30192/cmp-nvim-ultisnips' },
     { 'onsails/lspkind.nvim' },
     {
         "kawre/leetcode.nvim",
@@ -92,9 +74,6 @@ lvim.plugins = {
     }
 }
 
--- I love Michael Zhou
-require('cpp-javadoc').setup()
-
 -- Vimtex for note-taking
 vim.g.tex_flavor = 'latex'
 vim.g.vimtex_compiler_latexmk = {
@@ -110,6 +89,6 @@ vim.g.tex_conceal = 'abdmg'
 -- nvim-cmp settings
 require('tex-ultisnips-cmp')
 
-require("notify").setup({
-  background_colour = "#000000",
-})
+-- require("notify").setup({
+--     background_colour = "#000000",
+-- })
