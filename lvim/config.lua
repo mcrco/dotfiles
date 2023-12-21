@@ -1,4 +1,4 @@
--- local icons = require "icons"
+local icons = require "icons"
 -- lvim stuff
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = true
@@ -46,14 +46,14 @@ lvim.plugins = {
     { 'Mofiqul/dracula.nvim' },
     { 'folke/tokyonight.nvim' },
     { 'lervag/vimtex' },
-    -- { 'hrsh7th/cmp-omni' },
+    { 'hrsh7th/cmp-omni' },
     { 'KeitaNakamura/tex-conceal.vim' },
     { 'kaicataldo/material.vim' },
     { 'shaunsingh/nord.nvim' },
     { 'tanvirtin/monokai.nvim' },
     { 'navarasu/onedark.nvim' },
     { 'sirver/ultisnips' },
-    -- { 'quangnguyen30192/cmp-nvim-ultisnips' },
+    { 'quangnguyen30192/cmp-nvim-ultisnips' },
     { 'onsails/lspkind.nvim' },
     {
         "kawre/leetcode.nvim",

@@ -46,5 +46,7 @@ cmp.formatting = {
     })
 }
 
+require('cmp').setup(cmp)
+
 vim.g.UltiSnipsJumpForwardTrigger = "<tab>"
 vim.g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
