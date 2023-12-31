@@ -1,7 +1,10 @@
 #!/bin/sh
 
-# Set monitors using xrandr
+# Set monitors using xrandr if 2 monitors connected
+if [ $(xrandr | grep -c ' connected') -gt 1 ]
+then
 $HOME/.screenlayout/dualmonitor.sh
+fi
 
 # Restart hotkeys server
 pgrep -x sxhkd > /dev/null || sxhkd &
@@ -12,9 +15,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 # For apps that are written in Java Swing
 wmname LG3D
 
-# Restart programs as necessary
-$HOME/.config/polybar/launch.sh &
-
+# Blue light filter
 blue light
 if [ "$(pgrep redshift)" == "" ]
 then
@@ -38,9 +39,12 @@ then
     bspc config -m $(cat $HOME/vars/monitorscreen) window_gap 32
     bspc monitor $(cat $HOME/vars/laptopscreen) -d 1 2 3 4 5 
     bspc monitor $(cat $HOME/vars/monitorscreen) -d 6 7 8 9 10
+    $HOME/.config/polybar/launch-dual.sh &
 # Single monitor
 else
-    bspc monitor $(cat $HOME/vars/laptopscreen) -d 1 2 3 4 5 6
+    bspc monitor -d 1 2 3 4 5 6
+    $HOME/.config/polybar/launch-single.sh &
+
 fi
 
 # Make latte dock visible
