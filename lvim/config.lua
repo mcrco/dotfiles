@@ -71,7 +71,8 @@ lvim.plugins = {
         opts = {
             -- configuration goes here
         },
-    }
+    },
+    { 'preservim/vim-pencil' }
 }
 
 -- Vimtex for note-taking

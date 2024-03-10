@@ -53,6 +53,7 @@
   "tokyonight.nvim": { "branch": "main", "commit": "633039585dff7fd2b9b62fb190bf768702609d95" },
   "ultisnips": { "branch": "master", "commit": "b393ba65386d47664421e1f8b246a87a6e8b218c" },
   "vim-illuminate": { "branch": "master", "commit": "3bd2ab64b5d63b29e05691e624927e5ebbf0fb86" },
+  "vim-pencil": { "branch": "master", "commit": "6d70438a8886eaf933c38a7a43a61adb0a7815ed" },
   "vimtex": { "branch": "master", "commit": "7d1dbd0eebe041fbda4d1132622bf051b1546497" },
   "which-key.nvim": { "branch": "main", "commit": "6962dae3565369363b59dd51fb206051555fcb4d" }
 }

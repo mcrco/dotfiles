@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd('FileType', {
     pattern = 'tex',
     callback = function(t)
         -- text wrapping
-        vim.opt.wrap = true
+        vim.opt.wrap = false
 
         -- remove buffer as cmp source
         local sources_to_delete = {
