@@ -1,6 +1,0 @@
-snippet reqcheck "Sanity check for plugins" w
-local $1_setup, $1 = pcall(require, "$1")
-if not $1_setup then
-	return
-end
-endsnippet
