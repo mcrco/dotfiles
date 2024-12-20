@@ -251,6 +251,21 @@ snip.rv = subprocess.check_output(['wolframscript', '-code', code])
 `
 endsnippet
 
+context "math()"
+snippet approx "approx" iA
+\approx
+endsnippet
+
+context "math()"
+snippet prop "proportional to" iA
+\propto
+endsnippet
+
+context "math()"
+snippet perpp "perpendicular to" iA
+\perp
+endsnippet
+
 snippet == "equals" iA
 &=$1
 endsnippet
@@ -725,6 +740,35 @@ snippet cvec "column vector" iA
 \begin{pmatrix} ${1:x}_${2:1}\\\\ \vdots\\\\ $1_${2:n} \end{pmatrix}
 endsnippet
 
+context "math()"
+snippet uset "underset" iA
+\underset{$1}{$2}$0
+endsnippet
+
+priority 110
+context "math()"
+snippet "ddot" "ddot" riA
+\ddot{$1}$0
+endsnippet
+
+priority 200
+context "math()"
+snippet "([a-zA-Z])ddot" "ddot" riA
+\ddot{`!p snip.rv=match.group(1)`}
+endsnippet
+
+priority 10
+context "math()"
+snippet "dot" "dot" riA
+\dot{$1}$0
+endsnippet
+
+priority 100
+context "math()"
+snippet "([a-zA-Z])dot" "dot" riA
+\dot{`!p snip.rv=match.group(1)`}
+endsnippet
+
 priority 10
 context "math()"
 snippet "bar" "bar" riA
@@ -797,7 +841,7 @@ snippet orr "or" iA
 endsnippet
 
 context "math()"
-snippet and "and" A
+snippet and "and" iA
 \land
 endsnippet
 
@@ -852,6 +896,11 @@ snippet @t "theta" iA
 endsnippet
 
 context "math()"
+snippet tau "tau" iA
+\tau
+endsnippet
+
+context "math()"
 snippet phi "phi" iA
 \phi
 endsnippet
@@ -872,6 +921,11 @@ snippet @l "lambda" iA
 endsnippet
 
 context "math()"
+snippet @L "Lambda" iA
+\Lambda
+endsnippet
+
+context "math()"
 snippet @s "sigma" iA
 \sigma
 endsnippet
@@ -886,9 +940,10 @@ snippet chi "chi" iA
 \chi
 endsnippet
 
-# snippet @a "alpha" iA
-# \alpha
-# endsnippet
+context "math()"
+snippet @x "xi" iA
+\xi
+endsnippet
 
 # snippet @a "alpha" iA
 # \alpha

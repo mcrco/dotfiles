@@ -6,7 +6,6 @@ map("n", "<leader>c", function()
     Snacks.bufdelete()
 end, { desc = "Delete Buffer" })
 
-local Util = require("lazyvim.util")
 vim.keymap.set("n", "<C-/>", function()
-    Util.terminal(nil, { border = "rounded" })
+    Snacks.terminal(nil, { border = "rounded" })
 end, { desc = "Term with border" })
