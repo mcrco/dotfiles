@@ -1,4 +1,4 @@
 return {
-  "SirVer/ultisnips",
-  event = { "InsertEnter" },
+    "SirVer/ultisnips",
+    event = { "InsertEnter" },
 }
