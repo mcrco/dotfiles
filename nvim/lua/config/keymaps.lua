@@ -9,3 +9,6 @@ end, { desc = "Delete Buffer" })
 vim.keymap.set("n", "<C-/>", function()
     Snacks.terminal(nil, { border = "rounded" })
 end, { desc = "Term with border" })
+
+-- Keybinding to open Telescope file history
+vim.keymap.set("n", "<leader>fh", "<cmd>Telescope file_history<cr>", { desc = "File History" })

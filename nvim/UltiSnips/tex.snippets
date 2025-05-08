@@ -1,44 +1,7 @@
 global !p
 def math():
 	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
-
-def comment(): 
-	return vim.eval('vimtex#syntax#in_comment()') == '1'
-
-def env(name):
-	[x,y] = vim.eval("vimtex#env#is_inside('" + name + "')") 
-	return x != '0' and y != '0'
-
 endglobal
-
-
-snippet template "Basic template" b
-\documentclass[a4paper]{article}
-
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{textcomp}
-\usepackage[english]{babel}
-\usepackage{amsmath, amssymb}
-
-
-% figure support
-\usepackage{import}
-\usepackage{xifthen}
-\pdfminorversion=7
-\usepackage{pdfpages}
-\usepackage{transparent}
-\newcommand{\incfig}[1]{%
-	\def\svgwidth{\columnwidth}
-	\import{./figures/}{#1.pdf_tex}
-}
-
-\pdfsuppresswarningpagegroup=1
-
-\begin{document}
-	$0
-\end{document}
-endsnippet
 
 snippet beg "begin{} / end{}" bA
 \\begin{$1}
@@ -59,9 +22,7 @@ snippet pset "Problem set template" b
 \begin{center}
 {\Large $1} \\\\
 \medskip
-Marco Yang \\\\
-\medskip
-2237027
+Marco Yang
 \bigskip
 \end{center}
 
@@ -155,24 +116,6 @@ snippet ali "Align" bA
 endsnippet
 
 context "math()"
-#snippet cchem "Chem Formula" iA
-#\ce{$1}$0
-#endsnippet
-
-#context "env(ce)"
-#snippet caqu "aqueous subscript for chemical" iA
-#_{(aq)}
-#endsnippet
-#
-#context "env(ce)"
-#snippet csol "solid subscript for chemical" iA
-#_{(s)}
-#endsnippet
-
-# context "env(ce)"
-# snippet cliq "liquid subscript for chemical" iA
-# _{(l)}
-# endsnippet
 
 snippet parts "Parts" b
 \begin{parts}
@@ -320,11 +263,11 @@ snippet lr{ "left\{ right\}" i
 \left\\{ ${1:${VISUAL}} \right\\} $0
 endsnippet
 
-snippet lrb "left\{ right\}" i
-\left\\{ ${1:${VISUAL}} \right\\} $0
+snippet lrb "left\{ right\}" iA
+\left[ ${1:${VISUAL}} \right] $0
 endsnippet
 
-snippet lr[ "left[ right]" i
+snippet lr[] "left[ right]" iA
 \left[ ${1:${VISUAL}} \right] $0
 endsnippet
 
@@ -359,8 +302,12 @@ snippet prod "product" w
 \prod_{${1:n=${2:1}}}^{${3:\infty}} ${4:${VISUAL}} $0
 endsnippet
 
-snippet part "d/dx" w
+snippet part "partial d/dx" w
 \frac{\partial ${1:V}}{\partial ${2:x}} $0
+endsnippet
+
+snippet parsub "parsub" w
+\partial_{${1:x}} $0
 endsnippet
 
 snippet ddx "dx" iA
@@ -546,6 +493,11 @@ snippet ** "cdot" iA
 \cdot
 endsnippet
 
+priority 100
+snippet odt "odot" iA
+\odot
+endsnippet
+
 context "math()"
 snippet norm "norm" iA
 \|$1\|$0
@@ -714,6 +666,11 @@ priority 10
 context "math()"
 snippet bf "\textbf" iA
 \textbf{$1}$2
+endsnippet
+
+context "math()"
+snippet ttt "\texttt" iA
+\texttt{$1}$2
 endsnippet
 
 context "math()"
