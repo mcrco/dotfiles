@@ -195,7 +195,7 @@ Marco Yang
 
     -- Align environment
     s(
-        { trig = "ali", snippetType = "autosnippet", wordTrig = true },
+        { trig = "^ali", snippetType = "autosnippet", wordTrig = true, regTrig = true },
         fmta(
             [[
 \begin{align*}
@@ -372,7 +372,7 @@ Marco Yang
     -- Product
     s(
         { trig = "prod", wordTrig = true },
-        fmta("\\prod_{<>=${<>}}^{<>} <> <>", { i(1, "n"), i(2, "1"), i(3, "\\infty"), i(4), i(0) }),
+        fmta("\\prod_{<>}^{<>} <> <>", { i(1, "i=1"), i(2, "\\infty"), i(3), i(0) }),
         {}
     ),
 
@@ -406,7 +406,7 @@ Marco Yang
 
     -- Subscript
     s(
-        { trig = "_", snippetType = "autosnippet", regTrig = true },
+        { trig = "_", snippetType = "autosnippet", regTrig = true, wordTrig = false },
         fmta("_{<>}<>", { i(1), i(0) }),
         { condition = math }
     ),
@@ -632,6 +632,8 @@ Marco Yang
 
     -- Max function
     s({ trig = "max", snippetType = "autosnippet" }, { t("\\operatorname{max}") }, { condition = math }),
+    -- Min function
+    s({ trig = "min", snippetType = "autosnippet" }, { t("\\operatorname{min}") }, { condition = math }),
 
     -- Cases environment
     s(
@@ -1066,6 +1068,15 @@ Marco Yang
         snippetType = "autosnippet",
     }, {
         t("\\phi"),
+    }),
+    s({
+        trig = "Phi",
+        wordTrig = true,
+        condition = math,
+        desc = "Phi",
+        snippetType = "autosnippet",
+    }, {
+        t("\\Phi"),
     }),
 
     -- Psi
