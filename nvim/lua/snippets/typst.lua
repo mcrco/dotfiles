@@ -2,6 +2,7 @@ local ls = require("luasnip")
 local t = ls.text_node
 local s = ls.snippet
 local i = ls.insert_node
+local f = ls.function_node
 local conds = require("luasnip.extras.conditions")
 local fmta = require("luasnip.extras.fmt").fmta
 
@@ -113,5 +114,35 @@ $ <>
         ]],
             { i(1) }
         )
+    ),
+
+    -- Auto subscript with one digit
+    s({ trig = "([A-Za-z])(%d)", regTrig = true, wordTrig = false, snippetType = "autosnippet" }, {
+        f(function(_, snip)
+            return snip.captures[1]
+        end),
+        t("_"),
+        f(function(_, snip)
+            return snip.captures[2]
+        end),
+    }, { condition = math }),
+
+    -- Auto subscript with two digits
+    s({ trig = "([A-Za-z])_(%d%d)", regTrig = true, wordTrig = false, snippetType = "autosnippet" }, {
+        f(function(_, snip)
+            return snip.captures[1]
+        end),
+        t("_("),
+        f(function(_, snip)
+            return snip.captures[2]
+        end),
+        t(")"),
+    }, { condition = math }),
+
+    -- Subscript
+    s(
+        { trig = "_", snippetType = "autosnippet", regTrig = true, wordTrig = false },
+        fmta("_(<>)<>", { i(1), i(0) }),
+        { condition = math }
     ),
 }
