@@ -1,0 +1,81 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    },
+  },
+  {
+    "context": "(Editor && (showing_code_actions || showing_completions))",
+    "bindings": {
+      "tab": "editor::ContextMenuNext",
+    },
+  },
+  {
+    "context": "(Editor && (showing_code_actions || showing_completions))",
+    "bindings": {
+      "shift-tab": "editor::ContextMenuPrevious",
+    },
+  },
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "shift-l": null,
+    },
+  },
+  {
+    "context": "(Editor || Pane) && vim_mode == normal",
+    "bindings": {
+      "shift-l": "pane::ActivateNextItem",
+    },
+  },
+  {
+    "context": "(Editor || Pane) && vim_mode == normal",
+    "bindings": {
+      "shift-h": "pane::ActivatePreviousItem",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-t": null,
+    },
+  },
+  {
+    "context": "AgentPanel",
+    "bindings": {
+      "cmd-t": "agent::NewTerminalThread",
+    },
+  },
+  {
+    "context": "Editor && mode==full",
+    "bindings": {
+      "cmd-l": "agent::AddSelectionToThread",
+    },
+  },
+  {
+    "context": "Editor || Terminal",
+    "bindings": {
+      "cmd-l": "agent::ToggleFocus",
+    },
+  },
+  {
+    "context": "AgentPanel",
+    "bindings": {
+      "cmd-l": "workspace::ToggleRightDock",
+    },
+  },
+]

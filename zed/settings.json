@@ -1,0 +1,198 @@
+{
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "project_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+    "limit_content_width": false,
+  },
+  "agent_ui_font_size": 19.0,
+  "agent_buffer_font_size": 16.0,
+  "agent_servers": {
+    "cursor": {
+      "default_config_options": {
+        "mode": "ask",
+      },
+      "type": "registry",
+    },
+    "gemini": {
+      "type": "registry",
+    },
+    "codex-acp": {
+      "default_config_options": {
+        "mode": "auto",
+      },
+      "type": "registry",
+    },
+  },
+  "show_edit_predictions": false,
+  "git_panel": {
+    "dock": "left",
+    "tree_view": true,
+  },
+  "ssh_connections": [
+    {
+      "host": "yin",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/groups/tensorlab/myang2/cs165-project"
+          ]
+        },
+        {
+          "paths": [
+            "/home/marco/School/cs148b/hw2"
+          ]
+        },
+        {
+          "paths": [
+            "/home/marco/School/cs148b/hw3"
+          ]
+        },
+        {
+          "paths": [
+            "/home/marco/dev/catanrl"
+          ]
+        },
+        {
+          "paths": [
+            "/home/marco/dev/pandemaniac"
+          ]
+        },
+        {
+          "paths": [
+            "/home/marco/dev/qwen35-cuda"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "yang",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/marco/dev/LeanDLLMs"
+          ]
+        },
+        {
+          "paths": [
+            "/home/marco/dev/LeanDojo-v2-dllm"
+          ]
+        },
+        {
+          "paths": [
+            "/home/marco/school/cs148b"
+          ]
+        },
+        {
+          "paths": [
+            "/home/marco/school/cs148b/hw1"
+          ]
+        },
+        {
+          "paths": [
+            "/home/marco/school/cs148b/hw2"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "hpc",
+      "args": [],
+      "projects": []
+    },
+    {
+      "host": "titan",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/myang2/cs179/hw5"
+          ]
+        },
+        {
+          "paths": [
+            "/home/myang2/hw4"
+          ]
+        },
+        {
+          "paths": [
+            "/home/myang2/hw5"
+          ]
+        }
+      ]
+    }
+  ],
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "vim_mode": true,
+  "relative_line_numbers": "enabled",
+  "gutter": {
+    "line_numbers": true,
+  },
+  "minimap": {
+    "show": "never",
+  },
+  "buffer_font_fallbacks": ["Menlo", "Monaco", "Courier New", "monospace"],
+  "buffer_font_family": "SFMono Nerd Font",
+  "base_keymap": "Cursor",
+  "ui_font_size": 17.0,
+  "buffer_font_size": 16.0,
+  "theme": {
+    "mode": "system",
+    "light": "Tokyo Night Storm",
+    "dark": "Tokyo Night",
+  },
+  "languages": {
+    "Python": {
+      "language_servers": [
+        "!basedpyright",
+        "!pylsp",
+        "pyrefly",
+        // "ty",
+        // "pyright",
+        "...",
+      ],
+    },
+    // "Java": {
+    //   "format_on_save": "off",
+    // },
+  },
+  "lsp": {
+    "ty": {
+      "settings": {
+        "experimental": {
+          "rename": true,
+        },
+      },
+    },
+    "clangd": {
+      "binary": {
+        "arguments": ["--query-driver=/usr/local/cuda*/bin/nvcc,/usr/bin/g++"],
+      },
+    },
+  },
+  "terminal": {
+    "dock": "right",
+  },
+}
