@@ -1,0 +1,63 @@
+# Allowlist: ignore everything in ~/.config, then opt configs in explicitly.
+# Apps drop state, caches, and credentials here (gcloud, gh tokens, logs...),
+# so new directories stay out of git until they're added below.
+/*
+!/.gitignore
+!/.gitmodules
+!/README.md
+
+# macOS
+!/aerospace/
+!/sketchybar/
+!/skhd/
+!/yabai/
+!/rift/
+!/iterm2/
+
+# Linux
+!/.screenlayout/
+!/bspwm/
+!/sxhkd/
+!/picom/
+!/rofi/
+!/zathura/
+
+# terminals / shells
+!/alacritty/
+!/alacritty.toml
+!/ghostty/
+!/kitty/
+!/fish/
+!/herdr/
+/herdr/*
+!/herdr/config.toml
+
+# editors
+!/nvim/
+!/lvim/
+!/astronvim/
+!/zed/
+/zed/conversations/
+/zed/prompts/
+
+# tools
+!/btop/
+!/htop/
+!/uv/
+!/gh/
+/gh/hosts.yml
+!/opencode/
+/opencode/node_modules/
+/opencode/bun.lock
+/opencode/package-lock.json
+
+# everywhere
+.DS_Store
+*.bak
+*.log
+*.sock
+
+# moved from ~ (~/.zshrc is a symlink into zsh/)
+!/git/
+!/tmux/
+!/zsh/

@@ -61,6 +61,14 @@
     },
   },
   {
+    // Make the terminal agent the default: cmd-n in the agent panel
+    // always creates a Terminal Thread instead of a chat thread.
+    "context": "AgentPanel",
+    "bindings": {
+      "cmd-n": "agent::NewTerminalThread",
+    },
+  },
+  {
     "context": "Editor && mode==full",
     "bindings": {
       "cmd-l": "agent::AddSelectionToThread",

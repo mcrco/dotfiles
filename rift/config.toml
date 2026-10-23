@@ -1,0 +1,142 @@
+# rift config — ported from ~/.config/aerospace/aerospace.toml
+# Full reference: https://raw.githubusercontent.com/acsandmann/rift/main/rift.default.toml
+
+[settings]
+animate = true
+animation_duration = 0.2
+animation_fps = 0.0 # 0 = match display refresh rate
+
+# Rift's default is to leave every space unmanaged until you press toggle_space_activated.
+# AeroSpace manages everything, so do the same here.
+default_disable = false
+
+# AeroSpace only warped the mouse when the focused monitor changed. Rift's
+# mouse_follows_focus warps on *every* focus change, so it's off here.
+focus_follows_mouse = false
+mouse_follows_focus = false
+mouse_hides_on_focus = false
+
+auto_focus_blacklist = []
+
+# Replaces after-startup-command + exec-on-workspace-change. Fires the same
+# sketchybar event as AeroSpace did, so plugins/aerospace.sh works unchanged
+# (workspace names below are "1".."10" to match).
+run_on_start = [
+  "sketchybar",
+  "rift-cli subscribe cli --event workspace_changed --command sh --args -c --args 'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=\"$RIFT_WORKSPACE_NAME\"'",
+]
+
+hot_reload = true
+
+[settings.layout]
+mode = "traditional" # i3-style, same as AeroSpace tiles
+window_insertion_point = "next_to_selection"
+
+[settings.layout.traditional]
+equalize_nodes = true
+
+[settings.layout.stack]
+stack_offset = 30.0 # accordion-padding = 30
+
+[settings.layout.gaps.outer]
+top = 20
+left = 12
+bottom = 12
+right = 12
+
+[settings.layout.gaps.inner]
+horizontal = 12
+vertical = 12
+
+# LG ULTRAWIDE (main display): top = 50, as in AeroSpace's { monitor.main = 50 }
+[settings.layout.gaps.per_display."50F2C3A7-0F5D-4A22-B0D7-EEB9524733B8".outer]
+top = 50
+left = 12
+bottom = 12
+right = 12
+
+[settings.layout.gaps.per_display."50F2C3A7-0F5D-4A22-B0D7-EEB9524733B8".inner]
+horizontal = 12
+vertical = 12
+
+[settings.ui.mission_control]
+enabled = false
+
+[settings.ui.menu_bar]
+enabled = false # sketchybar handles this
+
+[settings.gestures]
+enabled = false
+
+[virtual_workspaces]
+enabled = true
+default_workspace_count = 10
+auto_assign_windows = true
+preserve_focus_per_workspace = true
+workspace_auto_back_and_forth = false
+prevent_wrapping = false
+workspace_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+workspace_rules = []
+
+app_rules = []
+
+[modifier_combinations]
+comb1 = "Alt + Shift"
+
+# Workspace indices are 0-based: Alt+1 -> index 0 (named "1"), Alt+0 -> index 9 (named "10").
+[keys]
+# new window in the already-running Ghostty (instant); cold-launch only if it isn't running
+"Alt + Enter" = { exec = ["/usr/bin/osascript", "-e", 'if application "Ghostty" is running then', "-e", 'tell application "Ghostty" to new window', "-e", "end if", "-e", 'tell application "Ghostty" to activate'] }
+
+# custom close so app confirm dialogs (e.g. Ghostty "process running") don't steal focus
+"Alt + Q" = { exec = ["/bin/bash", "-c", "~/.config/rift/close.sh"] }
+
+"Alt + Slash" = "toggle_orientation"
+"Alt + Comma" = "toggle_stack"
+
+"Alt + H" = { move_focus = "left" }
+"Alt + J" = { move_focus = "down" }
+"Alt + K" = { move_focus = "up" }
+"Alt + L" = { move_focus = "right" }
+
+"comb1 + H" = { move_node = "left" }
+"comb1 + J" = { move_node = "down" }
+"comb1 + K" = { move_node = "up" }
+"comb1 + L" = { move_node = "right" }
+
+"comb1 + Minus" = { resize_window_shrink = "smart" }
+"comb1 + Equal" = { resize_window_grow = "smart" }
+
+"Alt + 1" = { switch_to_workspace = 0 }
+"Alt + 2" = { switch_to_workspace = 1 }
+"Alt + 3" = { switch_to_workspace = 2 }
+"Alt + 4" = { switch_to_workspace = 3 }
+"Alt + 5" = { switch_to_workspace = 4 }
+"Alt + 6" = { switch_to_workspace = 5 }
+"Alt + 7" = { switch_to_workspace = 6 }
+"Alt + 8" = { switch_to_workspace = 7 }
+"Alt + 9" = { switch_to_workspace = 8 }
+"Alt + 0" = { switch_to_workspace = 9 }
+
+"comb1 + 1" = { move_window_to_workspace = { workspace = 0, follow = true } }
+"comb1 + 2" = { move_window_to_workspace = { workspace = 1, follow = true } }
+"comb1 + 3" = { move_window_to_workspace = { workspace = 2, follow = true } }
+"comb1 + 4" = { move_window_to_workspace = { workspace = 3, follow = true } }
+"comb1 + 5" = { move_window_to_workspace = { workspace = 4, follow = true } }
+"comb1 + 6" = { move_window_to_workspace = { workspace = 5, follow = true } }
+"comb1 + 7" = { move_window_to_workspace = { workspace = 6, follow = true } }
+"comb1 + 8" = { move_window_to_workspace = { workspace = 7, follow = true } }
+"comb1 + 9" = { move_window_to_workspace = { workspace = 8, follow = true } }
+"comb1 + 0" = { move_window_to_workspace = { workspace = 9, follow = true } }
+
+"Alt + Tab" = "switch_to_last_workspace"
+# AeroSpace's "next" monitor; Rift takes a direction, so this assumes side-by-side displays
+"comb1 + Tab" = { move_workspace_to_display = { selector = "right", wrap_around = true } }
+
+"Alt + Ctrl + Meta + R" = "reload_config"
+
+# Rift-only extras worth trying
+"Alt + Shift + Space" = "toggle_window_floating"
+"Alt + F" = "toggle_fullscreen_within_gaps"
+"Alt + Ctrl + 1" = { set_workspace_layout = { mode = "traditional" } }
+"Alt + Ctrl + 2" = { set_workspace_layout = { mode = "scrolling" } }

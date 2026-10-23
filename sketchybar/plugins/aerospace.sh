@@ -4,16 +4,19 @@
 # chmod +x ~/.config/sketchybar/plugins/aerospace.sh
 
 source "$CONFIG_DIR/colors.sh"
-COLOR=$BACKGROUND_2
-SELECTED="false"
-echo "input $1 focused workspace $FOCUSED_WORKSPACE"
+
+# On reload / --update the event env is empty; ask AeroSpace directly instead
+if [ -z "$FOCUSED_WORKSPACE" ] && command -v aerospace >/dev/null; then
+    FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused 2>/dev/null)
+fi
 
 if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
-    sketchybar --set $NAME icon.highlight=true \
+    # Focused workspace: brighter glass pill inside the bracket
+    sketchybar --animate tanh 12 --set $NAME icon.highlight=true \
         label.highlight=true \
-        background.border_color=$BACKGROUND_2
+        background.drawing=on
 else
-    sketchybar --set $NAME icon.highlight=false \
+    sketchybar --animate tanh 12 --set $NAME icon.highlight=false \
         label.highlight=false \
-        background.border_color=$GRAY
+        background.drawing=off
 fi

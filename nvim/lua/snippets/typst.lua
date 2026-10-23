@@ -31,7 +31,7 @@ $ <>
     -- Definite integral
     s(
         { trig = "dint", snippetType = "autosnippet", wordTrig = true },
-        fmta("integral_(<>)^(<>) <> d<><>", { i(1, "-\\infty"), i(2, "\\infty"), i(3), i(4), i(0) }),
+        fmta("integral_(<>)^(<>) <> dif<><>", { i(1, "-infinity"), i(2, "infinity"), i(3), i(4), i(0) }),
         { condition = math }
     ),
 

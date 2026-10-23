@@ -8,7 +8,7 @@ volume_slider=(
   slider.highlight_color=$BLUE
   slider.background.height=5
   slider.background.corner_radius=3
-  slider.background.color=$BACKGROUND_2
+  slider.background.color=$GLASS_BORDER
   slider.knob=􀀁
   slider.knob.drawing=off
 )
@@ -27,13 +27,14 @@ volume_icon=(
 )
 
 status_bracket=(
-  background.color=$BACKGROUND_1
-  background.border_color=$BACKGROUND_2
+  "${glass[@]}"
 )
 
-sketchybar --add slider volume right            \
+sketchybar --add event monitor_volume_change    \
+           --add slider volume right            \
            --set volume "${volume_slider[@]}"   \
            --subscribe volume volume_change     \
+                              monitor_volume_change \
                               mouse.clicked     \
                               mouse.entered     \
                               mouse.exited      \
@@ -43,3 +44,8 @@ sketchybar --add slider volume right            \
 
 sketchybar --add bracket status brew github.bell volume_icon \
            --set status "${status_bracket[@]}"
+
+# Follow the monitor volume that MonitorControl sets over DDC (macOS does not
+# emit volume_change for HDMI/DisplayPort audio, so we watch MonitorControl's prefs)
+pkill -f monitor_volume_watch.sh
+"$PLUGIN_DIR/monitor_volume_watch.sh" >/dev/null 2>&1 &

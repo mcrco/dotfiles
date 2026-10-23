@@ -1,11 +1,12 @@
 {
+  "format_on_save": "on",
   "icon_theme": {
-    "mode": "system",
+    "mode": "light",
     "light": "Zed (Default)",
     "dark": "Zed (Default)"
   },
   "project_panel": {
-    "dock": "left",
+    "dock": "right",
   },
   "outline_panel": {
     "dock": "left",
@@ -14,30 +15,14 @@
     "dock": "left",
   },
   "agent": {
-    "dock": "right",
+    "dock": "left",
+    "terminal_init_command": "claude",
     "favorite_models": [],
     "model_parameters": [],
     "limit_content_width": false,
   },
   "agent_ui_font_size": 19.0,
   "agent_buffer_font_size": 16.0,
-  "agent_servers": {
-    "cursor": {
-      "default_config_options": {
-        "mode": "ask",
-      },
-      "type": "registry",
-    },
-    "gemini": {
-      "type": "registry",
-    },
-    "codex-acp": {
-      "default_config_options": {
-        "mode": "auto",
-      },
-      "type": "registry",
-    },
-  },
   "show_edit_predictions": false,
   "git_panel": {
     "dock": "left",
@@ -70,6 +55,16 @@
         },
         {
           "paths": [
+            "/home/marco/dev/catanrl-v2"
+          ]
+        },
+        {
+          "paths": [
+            "/home/marco/dev/forecast"
+          ]
+        },
+        {
+          "paths": [
             "/home/marco/dev/pandemaniac"
           ]
         },
@@ -92,6 +87,16 @@
         {
           "paths": [
             "/home/marco/dev/LeanDojo-v2-dllm"
+          ]
+        },
+        {
+          "paths": [
+            "/home/marco/dev/connect6"
+          ]
+        },
+        {
+          "paths": [
+            "/home/marco/dev/qwen35-cuda"
           ]
         },
         {
@@ -159,9 +164,9 @@
   "ui_font_size": 17.0,
   "buffer_font_size": 16.0,
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "Tokyo Night Storm",
-    "dark": "Tokyo Night",
+    "dark": "One Dark",
   },
   "languages": {
     "Python": {

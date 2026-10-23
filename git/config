@@ -1,0 +1,14 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Marco Yang
+	email = marco.yang.ca@gmail.com
+	signingkey = DED32CA592743E19
+# Please adapt and uncomment the following lines:
+#	name = Marco Yang
+#	email = marco.yang.ca@gmail.com
+[commit]
+	gpgsign = false
+[gpg]
+	program = gpg
+[tag]
+	gpgSign = true

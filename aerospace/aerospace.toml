@@ -92,9 +92,11 @@ outer.right =      12
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
 # You can uncomment the following lines to open up terminal with alt + enter shortcut (like in i3)
 
-alt-enter = 'exec-and-forget open -n /Applications/iTerm.app'
+# new window in the already-running Ghostty (instant); cold-launch only if it isn't running
+alt-enter = '''exec-and-forget osascript -e 'if application "Ghostty" is running then' -e 'tell application "Ghostty" to new window' -e 'end if' -e 'tell application "Ghostty" to activate' '''
 
-alt-q = 'close'
+# custom close so app confirm dialogs (e.g. Ghostty "process running") don't make AeroSpace refocus
+alt-q = 'exec-and-forget ~/.config/aerospace/close.sh'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
@@ -125,8 +127,8 @@ alt-5 = 'workspace 5'
 alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
-# alt-9 = 'workspace 9'
-# alt-0 = 'workspace 10'
+alt-9 = 'workspace 9'
+alt-0 = 'workspace 10'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
@@ -137,8 +139,8 @@ alt-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
 alt-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
 alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
 alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
-# alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
-# alt-shift-0 = ['move-node-to-workspace 10', 'workspace 10']
+alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
+alt-shift-0 = ['move-node-to-workspace 10', 'workspace 10']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
